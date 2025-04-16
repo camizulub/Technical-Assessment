@@ -24,7 +24,7 @@ The provided dataset (`gold.csv`) contains cryptocurrency trading data with the 
 
 ### News and Market Analysis
 - `next_news_prediction`: Predicted impact of upcoming news
-- `summary`: Market summary and analysis
+- `summary`: News summary
 - `key_factors`: Important market drivers
 - `dominant_sentiment`: Overall market sentiment classification
 
