@@ -9,8 +9,6 @@ The provided dataset (`gold.csv`) contains cryptocurrency trading data with the 
 ### Core Trading Data
 - `datetime`: Timestamp of the trading signal
 - `close`: Closing price of Bitcoin
-- `label_next_bar`: Target label for the next bar
-- `best_label`: Optimal label for the current bar
 
 ### Technical Indicators
 - `mvrv_btc_momentum`: Bitcoin momentum indicator
