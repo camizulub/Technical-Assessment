@@ -79,8 +79,8 @@ The provided dataset (`gold.csv`) contains cryptocurrency trading data with the 
    - Setup instructions
    - System architecture overview
    - Performance analysis and comparison
-   - API documentation
    - Testing strategy
+   - Documentation
 
 ## Technical Requirements
 
