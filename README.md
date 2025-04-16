@@ -20,7 +20,7 @@ The provided dataset (`gold.csv`) contains cryptocurrency trading data with pre-
 
 ## Assessment Structure
 
-### Phase 1: Core Signal Processing Service (Required)
+### Phase 1: Core Signal Processing Service
 Build a production-ready service that processes trading signals and calculates performance.
 
 **Requirements:**
