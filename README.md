@@ -1,114 +1,103 @@
 # Trading Signal Processing System - Technical Assessment
 
-## Overview
-Build a production-ready system that processes trading signals and implements an intelligent memory-based override mechanism to improve trading performance.
+## Introduction
+This assessment evaluates your ability to build a trading signal processing system that processes pre-generated trading signals and executes trading decisions based on those signals. You are NOT required to develop or create the trading signals themselves - these will be provided to your system. The assessment is structured in two clear phases with focused deliverables.
 
-## Dataset Description
-The provided dataset (`gold.csv`) contains cryptocurrency trading data with the following key components:
+## Environment
+Choose a cloud environment:
+- Google Cloud Platform (Free tier available: $300 credit) https://cloud.google.com/free?hl=en 
+- AWS (Free tier available)
 
-### Core Trading Data
+## Dataset
+The provided dataset (`gold.csv`) contains cryptocurrency trading data with pre-generated signals:
 - `datetime`: Timestamp of the trading signal
 - `close`: Closing price of Bitcoin
+- Technical indicators (e.g., `mvrv_btc_momentum`, `spot_volume_daily_sum`)
+- Sentiment analysis features (e.g., `sentiment`, `dominant_emotions`)
+- `Signal`: Pre-generated trading action to execute (BUY, SELL, HOLD)
 
-### Technical Indicators
-- `mvrv_btc_momentum`: Bitcoin momentum indicator
-- `spot_volume_daily_sum`: Daily trading volume
+**Important:** Your task is to process these pre-generated signals, not to create new trading signals or develop a trading strategy algorithm.
 
-### Sentiment Analysis Features
-- `sentiment`: Overall market sentiment score
-- `dominant_emotions`: Primary emotions detected in market sentiment
-- `psychology_explanation`: Detailed psychological analysis of market conditions
-- `intensity`: Sentiment intensity score
+## Assessment Structure
 
-### News and Market Analysis
-- `next_news_prediction`: Predicted impact of upcoming news
-- `summary`: News summary
-- `key_factors`: Important market drivers
-- `dominant_sentiment`: Overall market sentiment classification
+### Phase 1: Core Signal Processing Service (Required)
+Build a production-ready service that processes trading signals and calculates performance.
 
-## Requirements
+**Requirements:**
+1. Create a REST API with the following endpoints:
+   - `POST /signal` - Process a new pre-generated trading signal (you don't create the signal value)
+   - `GET /performance` - Get current portfolio performance
 
-### Part 1: Core Signal Processing Service
-- Build a service that processes trading signals sequentially by timestamp
-- Implement position taking based on signals
-- Calculate returns and track cumulative performance
-- Must be production-ready with:
-  - Comprehensive error handling
-  - Unit and integration tests
-  - Docker containerization
+2. Implement signal processing logic:
+   - Process pre-generated signals sequentially by timestamp
+   - Execute positions based on the provided signals (BUY, SELL, HOLD)
+   - Calculate returns after each executed signal
+   - Track cumulative performance
 
-### Part 2: Intelligent Signal Enhancement
-- Implement memory mechanism to track signal accuracy
-  - BUY signals considered correct if return > 0
-  - SELL signals considered correct if return < 0
-- Create override logic for signals with poor recent performance
-- Consider feature similarity when evaluating past performance
-- Run baseline and enhanced systems in parallel
-- Compare and report performance differences
+3. Production requirements:
+   - Containerized application (Docker)
+   - Deployed to Google Cloud Run or AWS Lambda
+   - Comprehensive error handling
+   - Basic logging
+   - Unit tests for core functionality
+   
+4. Cloud storage requirements:
+   - Portfolio performance data must be stored in a cloud service:
+     - Google Cloud: BigQuery or Cloud Storage
+     - AWS: S3 or DynamoDB
+   - Historical signal processing results should be queryable
 
-## Testing Requirements
+**Deliverables:**
+- Source code with clear structure
+- Dockerfile
+- README with setup instructions and API documentation
+- Screenshots of deployed service in Google Cloud Run or AWS Lambda
+- Access information for the cloud storage containing portfolio data
+- Test results showing baseline performance on the full dataset
 
-### 1. Signal Processing Tests
-- Sequential processing of signals by timestamp
-- Position taking logic validation
-- Return calculation accuracy
-- Handling of missing/invalid data
+### Phase 2: Performance Enhancement (This can be done in a notebook or VM, no need to deploy)
+Implement an intelligent enhancement using generative AI to improve trading performance.
 
-### 2. Memory Mechanism Tests
-- Signal accuracy tracking
-- Override logic validation
-- Feature similarity calculations
-- Memory-based decision making
+**Requirements:**
+1. Build a memory mechanism that (Use an llm - Gemini flash API is free):
+   - Tracks historical signal accuracy 
+   - Identifies patterns in successful/unsuccessful signals
+   - Makes intelligent override decisions
 
-### 3. Performance Comparison Tests
-- Parallel execution validation
-- Performance metrics calculation
-- Comparison report
+2. Compare performance:
+   - Run baseline and enhanced systems in parallel
+   - Generate clear performance metrics
+   - Document improvements
 
-### 4. Error Handling Tests
-- Invalid timestamp handling
-- Missing price data handling
-- Invalid signal type handling
-- Edge case handling (first/last signals)
+**Deliverables:**
+- Enhanced source code
+- Documentation of enhancement approach
+- Performance comparison analysis
 
-
-## Deliverables
-1. Complete source code with tests
-2. Dockerfile for containerization
-3. README with:
+## Submission Guidelines
+1. Provide a GitHub repository with your solution
+2. Include a README with:
    - Setup instructions
-   - System architecture overview
-   - Performance analysis and comparison
-   - Testing strategy
-   - Documentation
+   - API documentation
+   - Architecture overview
+   - Cloud deployment instructions
+   - Cloud storage access details
+   - Performance analysis
+   - Any assumptions made
+3. Provide screenshots of the deployed service in Google Cloud Run or AWS Lambda
+4. Share access credentials for the cloud storage (or instructions to generate access)
 
-## Technical Requirements
+## Testing Your Solution
+We will:
+1. Deploy your container using the provided Dockerfile
+2. Test the API by sending sequential pre-generated signals from our dataset
+3. Verify that your system correctly processes these signals and calculates performance
+4. Evaluate the enhancement approach
 
-### Core Components
-- Signal processing engine
-- Position management system
-- Performance calculation module
-- Memory-based override mechanism
-- Parallel execution framework
-- Monitoring and logging system
+Note: We're testing your ability to build a system that consumes and processes signals, not your ability to generate trading signals.
 
-### Documentation Requirements
-- System architecture diagrams
-- Setup and deployment guides
-- Performance analysis reports
-
-## Evaluation Criteria
-1. Code quality and organization
-2. System design and architecture
-3. Testing coverage and methodology
-4. Performance improvements achieved
-5. Documentation clarity
-6. Production readiness
-
-## Bonus Points
-- Use Agentic structures
-- Real-time processing capabilities
-- Scalability considerations
-- Advanced feature similarity metrics
-- Visualization of performance comparisons
-- CI/CD pipeline setup
+## Tips for Success
+- Focus on building a robust core system before moving to enhancements
+- Prioritize code quality and error handling
+- Document your approach clearly
+- Keep the solution focused on the requirements
