@@ -14,7 +14,7 @@ The provided dataset (`gold.csv`) contains cryptocurrency trading data with pre-
 - `close`: Closing price of Bitcoin
 - Technical indicators (e.g., `mvrv_btc_momentum`, `spot_volume_daily_sum`)
 - Sentiment analysis features (e.g., `sentiment`, `dominant_emotions`)
-- `Signal`: Pre-generated trading action to execute (BUY, SELL, HOLD)
+- `Signal`: Pre-generated trading action to execute (BUY (1), SELL (-1), HOLD (0))
 
 **Important:** Your task is to process these pre-generated signals, not to create new trading signals or develop a trading strategy algorithm.
 
@@ -27,6 +27,7 @@ Build a production-ready service that processes trading signals and calculates p
 1. Create a REST API with the following endpoints:
    - `POST /signal` - Process a new pre-generated trading signal (you don't create the signal value)
    - `GET /performance` - Get current portfolio performance
+   - **Bonus Points:** Use Pydantic for data validation
 
 2. Implement signal processing logic:
    - Process pre-generated signals sequentially by timestamp
