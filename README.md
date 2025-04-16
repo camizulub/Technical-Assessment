@@ -63,7 +63,7 @@ The provided dataset (`gold.csv`) contains cryptocurrency trading data with the 
 ### 3. Performance Comparison Tests
 - Parallel execution validation
 - Performance metrics calculation
-- Comparison reporting accuracy
+- Comparison report
 
 ### 4. Error Handling Tests
 - Invalid timestamp handling
@@ -71,11 +71,6 @@ The provided dataset (`gold.csv`) contains cryptocurrency trading data with the 
 - Invalid signal type handling
 - Edge case handling (first/last signals)
 
-### 5. Data Validation Tests
-- Data type validation
-- Range validation for numerical fields
-- Timestamp format validation
-- Required field presence validation
 
 ## Deliverables
 1. Complete source code with tests
@@ -97,13 +92,6 @@ The provided dataset (`gold.csv`) contains cryptocurrency trading data with the 
 - Parallel execution framework
 - Monitoring and logging system
 
-### Data Requirements
-- CSV file with sample trading signals containing:
-  - Timestamp
-  - Signal type (BUY/SELL)
-  - Price data
-  - Relevant features for similarity analysis
-
 ### Documentation Requirements
 - System architecture diagrams
 - Setup and deployment guides
@@ -118,7 +106,7 @@ The provided dataset (`gold.csv`) contains cryptocurrency trading data with the 
 6. Production readiness
 
 ## Bonus Points
-- Build an agent that stores the signals and the past performance in order to improve the current signals
+- Use Agentic structures
 - Real-time processing capabilities
 - Scalability considerations
 - Advanced feature similarity metrics
