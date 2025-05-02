@@ -30,7 +30,7 @@ The dataset `gold.csv` includes both structured market data and unstructured sen
 | `psychology_explanation`| Narrative explaining market psychology                   |
 
 ---
-We have also added an additional table (gold_full_table) if you want to work with a larger dataset.
+We have also added an additional table (`gold_full_table.csv`) if you want to work with a larger dataset.
 
 ## ✅ Tasks
 
