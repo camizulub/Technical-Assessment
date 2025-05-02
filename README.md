@@ -1,61 +1,145 @@
-# LLM Engineer Technical Assessment: Financial Trading Intelligence
+LLM Engineer Technical Assessment: Financial Trading Intelligence
+📍 Overview
+This assessment evaluates your ability to build a hybrid AI system that leverages LLMs for financial decision-making in algorithmic trading. You will use a structured crypto dataset (gold.csv) to implement trading logic, evaluate model behavior, and improve system performance based on rigorous analysis.
 
-## Overview
-This technical assessment evaluates your ability to build an LLM-powered trading intelligence system using a real-world cryptocurrency dataset. You'll demonstrate expertise in implementing various components of an advanced LLM system for financial trading decision-making.
+The goal is to demonstrate your practical skills in LLM orchestration, time series integration, prompt engineering, and model evaluation, with a strong focus on clarity, reliability, and innovation.
 
-## Dataset Description
-The dataset (`gold.csv`) contains the following columns:
-- `datetime`: Timestamp of the trading data
-- `close`: Bitcoin closing price
-- `mvrv_btc_momentum`: Market Value to Realized Value momentum
-- `spot_volume_daily_sum`: Daily trading volume
-- `Signal`: Binary trading signal (1 or -1)
-- `summary`: News summary
-- `next_news_prediction`: Predicted future news
-- `sentiment`: Sentiment label (Fear, Greed, etc.)
-- `index`: Sentiment score (numeric)
-- `key_factors`: Key market factors affecting prices
-- `dominant_emotions`: Major emotions in the market
-- `dominant_sentiment`: Primary sentiment classification
-- `intensity`: Sentiment intensity (1-10)
-- `psychology_explanation`: Analysis of market psychology
+📊 Dataset Description
+The gold.csv dataset includes structured trading signals and unstructured market sentiment data. Columns:
 
-## Tasks
+Column	Description
+datetime	Timestamp
+close	BTC closing price
+mvrv_btc_momentum	MVRV momentum indicator
+spot_volume_daily_sum	Daily trading volume
+Signal	Ground truth signal (-1 or 1)
+summary	News summary at that time
+next_news_prediction	Predicted news narrative
+sentiment	Market sentiment label (Fear, Greed, etc.)
+index	Sentiment index score (numeric)
+key_factors	Drivers behind market movements
+dominant_emotions	Emotional context of the market
+dominant_sentiment	Main sentiment class
+intensity	Sentiment intensity score (1–10)
+psychology_explanation	Narrative explaining market psychology
 
-### Task 1: RAG System Implementation
-Design and implement a Retrieval-Augmented Generation system that:
-- Creates embeddings for historical market data and news
-- Builds a knowledge base of market patterns and trading scenarios
-- Implements a retrieval mechanism to find relevant historical parallels
-- Integrates retrieved context into the LLM's decision-making process
+✅ Tasks
+📌 Task 1: Baseline Trading System
+Objective:
+Develop an LLM-driven trading algorithm that generates a decision signal ∈ (-1, 1) for each row in the dataset.
 
-### Task 2: Hallucination Reduction
-Implement techniques to reduce hallucinations in the system by:
-- Creating a factual grounding mechanism using historical data
-- Implementing confidence scoring for predictions
-- Designing guardrails to prevent extreme predictions
-- Measuring and minimizing hallucination rates
+Requirements:
 
-### Task 3: Experimentation & Optimization
-Design an experimentation framework that:
-- Tests different prompt structures
-- Evaluates various RAG retrieval mechanisms
-- Compares different LLM models for trading decisions
-- Implements a systematic approach to prompt engineering
+The output must be based on the available data without look-ahead bias.
 
-## Deliverables
-- Python implementation of the RAG system
-- LLM trading workflow implementation with chain-of-thought reasoning
-- Backtesting framework and evaluation metrics
-- Documentation of hallucination reduction techniques
-- Experimentation results and optimization findings
+Use LLMs (e.g. GPT-based, Claude, Mistral) for generating trading logic from text fields, optionally combined with structured features (hybrid architecture encouraged).
 
-## Evaluation Criteria
-- Code quality and organization
-- Effectiveness of the RAG implementation
-- Quality of trading decisions and reasoning
-- Robustness of hallucination reduction techniques
-- Thoroughness of experimentation and optimization
+Integrate embedding models and retrieval-based reasoning if applicable.
 
-## Bonus Points
-- Fine-tuning of a specialized model for financial sentiment analysis
+Explain your architecture clearly.
+
+Deliverables (in /task_1_baseline/):
+
+A Jupyter Notebook (baseline_strategy.ipynb) that:
+
+Loads the data
+
+Defines your model pipeline
+
+Produces decision outputs
+
+Includes commentary on your design decisions
+
+📌 Task 2: Evaluation Framework
+Objective:
+Evaluate your trading model's performance using the provided Backtester class and define a framework to systematically assess model decisions and behaviors.
+
+Requirements:
+
+Use the Backtester to simulate PnL and draw performance metrics.
+
+Build an evaluation report that includes:
+
+Win rate, Sharpe ratio, drawdown, and signal quality
+
+Qualitative and quantitative model reasoning analysis
+
+Identify promising improvement directions (e.g., prompt tuning, memory context, model grounding).
+
+Deliverables (in /task_2_evaluation/):
+
+A Jupyter Notebook (evaluation_report.ipynb) that:
+
+Runs the backtester
+
+Includes visualizations of performance (e.g., equity curve)
+
+Breaks down LLM-generated reasoning errors or hallucinations
+
+Proposes at least two improvement directions for Task 3
+
+📌 Task 3: Experimentation & Optimization
+Objective:
+Based on your findings from Task 2, implement two targeted improvements and measure their impact.
+
+Examples of valid improvements:
+
+Refined prompt engineering for better financial reasoning
+
+Retrieval-Augmented Generation using similar past cases
+
+Confidence scoring or hallucination filtering
+
+Using different LLMs or fine-tuned models
+
+Better input feature engineering
+
+Deliverables (in /task_3_experimentation/):
+
+A Jupyter Notebook (experiments_and_results.ipynb) showing:
+
+Your two chosen improvements
+
+Comparative performance metrics
+
+Commentary on what worked and what didn’t
+
+Final recommendations
+
+📦 Submission Instructions
+Submit a GitHub repository structured as follows:
+
+pgsql
+Copiar
+Editar
+repo/
+│
+├── task_1_baseline/
+│   └── baseline_strategy.ipynb
+│
+├── task_2_evaluation/
+│   └── evaluation_report.ipynb
+│
+├── task_3_experimentation/
+│   └── experiments_and_results.ipynb
+│
+└── README.md  ← Explain how to run your notebooks and dependencies
+Note: Use mock LLM outputs or OpenAI API calls as appropriate (mention cost constraints if applicable). You may simulate inference when needed for reproducibility.
+
+🧪 Evaluation Criteria
+Area	What We’re Looking For
+Code Quality	Modular, documented, reproducible code
+LLM System Design	Clear and creative use of LLMs and hybrid models
+Backtest Results	Evidence of reasonable strategy performance and generalization
+Evaluation Insight	Depth of insight into model decisions, hallucinations, and performance tradeoffs
+Experimentation Rigor	Logical follow-through on improvements, with thoughtful results interpretation
+Communication & Clarity	Clean, well-documented notebooks showing your reasoning and results
+
+🌟 Bonus Points
+Fine-tuning or retrieval pipelines using tools like LangGraph, LlamaIndex, or CrewAI
+
+Use of vector databases, streaming retrieval, or context compression
+
+A lightweight dashboard (e.g., Streamlit or Gradio) to visualize model decisions
+
+Financial sentiment classifier training or scoring extension
