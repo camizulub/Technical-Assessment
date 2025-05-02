@@ -37,6 +37,11 @@ The dataset `gold.csv` includes both structured market data and unstructured sen
 
 **Objective:**  
 Build an LLM-powered system that outputs a continuous trading decision ∈ (-1, 1) for each row in the dataset.
+## Signal Interpretation
+
+- **1 (Buy/Long)**: When a buy signal is generated, you take a long position. You'll profit if the price increases after your entry.
+- **-1 (Sell/Short)**: When a sell signal is generated, you take a short position. You'll profit if the price decreases after your entry.
+- **0 (Neutral)**: No position is taken. Market price movements have no impact on your portfolio during this period.
 
 **Requirements:**
 - Use LLMs to reason over sentiment and psychology fields.
