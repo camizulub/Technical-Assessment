@@ -1,145 +1,144 @@
-LLM Engineer Technical Assessment: Financial Trading Intelligence
-📍 Overview
-This assessment evaluates your ability to build a hybrid AI system that leverages LLMs for financial decision-making in algorithmic trading. You will use a structured crypto dataset (gold.csv) to implement trading logic, evaluate model behavior, and improve system performance based on rigorous analysis.
+# 🧠 LLM Engineer Technical Assessment: Financial Trading Intelligence
 
-The goal is to demonstrate your practical skills in LLM orchestration, time series integration, prompt engineering, and model evaluation, with a strong focus on clarity, reliability, and innovation.
+## 📍 Overview
 
-📊 Dataset Description
-The gold.csv dataset includes structured trading signals and unstructured market sentiment data. Columns:
+This technical assessment evaluates your ability to build a hybrid AI system that leverages LLMs for financial decision-making in algorithmic trading. Using a structured crypto dataset (`gold.csv`), you will implement a trading signal generator, evaluate its reasoning and performance, and improve it through experimentation.
 
-Column	Description
-datetime	Timestamp
-close	BTC closing price
-mvrv_btc_momentum	MVRV momentum indicator
-spot_volume_daily_sum	Daily trading volume
-Signal	Ground truth signal (-1 or 1)
-summary	News summary at that time
-next_news_prediction	Predicted news narrative
-sentiment	Market sentiment label (Fear, Greed, etc.)
-index	Sentiment index score (numeric)
-key_factors	Drivers behind market movements
-dominant_emotions	Emotional context of the market
-dominant_sentiment	Main sentiment class
-intensity	Sentiment intensity score (1–10)
-psychology_explanation	Narrative explaining market psychology
+You are expected to demonstrate hands-on skills in LLM integration, prompt engineering, reasoning analysis, and hybrid modeling with structured data — all applied to a real-world financial setting.
 
-✅ Tasks
-📌 Task 1: Baseline Trading System
-Objective:
-Develop an LLM-driven trading algorithm that generates a decision signal ∈ (-1, 1) for each row in the dataset.
+---
 
-Requirements:
+## 📊 Dataset Description
 
-The output must be based on the available data without look-ahead bias.
+The dataset `gold.csv` includes both structured market data and unstructured sentiment fields:
 
-Use LLMs (e.g. GPT-based, Claude, Mistral) for generating trading logic from text fields, optionally combined with structured features (hybrid architecture encouraged).
+| Column                  | Description                                              |
+|-------------------------|----------------------------------------------------------|
+| `datetime`              | Timestamp                                                |
+| `close`                 | BTC closing price                                        |
+| `mvrv_btc_momentum`     | MVRV momentum indicator                                  |
+| `spot_volume_daily_sum`| Daily trading volume                                      |
+| `Signal`                | Ground truth signal (-1 or 1)                            |
+| `summary`               | News summary at that time                                |
+| `next_news_prediction`  | Predicted news narrative                                 |
+| `sentiment`             | Market sentiment label (Fear, Greed, etc.)               |
+| `index`                 | Sentiment index score (numeric)                          |
+| `key_factors`           | Drivers behind market movements                          |
+| `dominant_emotions`     | Emotional context of the market                          |
+| `dominant_sentiment`    | Main sentiment class                                     |
+| `intensity`             | Sentiment intensity score (1–10)                         |
+| `psychology_explanation`| Narrative explaining market psychology                   |
 
-Integrate embedding models and retrieval-based reasoning if applicable.
+---
 
-Explain your architecture clearly.
+## ✅ Tasks
 
-Deliverables (in /task_1_baseline/):
+### 🧩 Task 1: Baseline Trading System
 
-A Jupyter Notebook (baseline_strategy.ipynb) that:
+**Objective:**  
+Build an LLM-powered system that outputs a continuous trading decision ∈ (-1, 1) for each row in the dataset.
 
-Loads the data
+**Requirements:**
+- Use LLMs to reason over sentiment and psychology fields.
+- Combine structured and unstructured data to enhance output quality (hybrid system encouraged).
+- Avoid look-ahead bias and overfitting — we will evaluate your system on a future data period.
+- Be creative: showcase your full skillset across LLMs, embeddings, retrieval, and hybrid ML techniques.
 
-Defines your model pipeline
+**Deliverables (`/task_1_baseline/`):**
+- `baseline_strategy.ipynb` notebook:
+  - Loads and prepares the dataset
+  - Defines your LLM/hybrid model pipeline
+  - Outputs a new column with decision values ∈ (-1, 1)
+  - Explains your modeling approach and assumptions
 
-Produces decision outputs
+---
 
-Includes commentary on your design decisions
+### 📊 Task 2: Evaluation Framework
 
-📌 Task 2: Evaluation Framework
-Objective:
-Evaluate your trading model's performance using the provided Backtester class and define a framework to systematically assess model decisions and behaviors.
+**Objective:**  
+Use the provided `Backtester` class to simulate trading performance **and** create an additional evaluation module that inspects the quality of model reasoning and decisions.
 
-Requirements:
+**Requirements:**
+- Run the provided backtesting tool to generate financial metrics and a PnL curve.
+- Create an **LLM/system reasoning evaluation module** that:
+  - Analyzes a sample of outputs and associated explanations or retrieved context
+  - Identifies decision inconsistencies, hallucinations, or overconfidence
+  - Provides insights into where and why the model tends to fail or succeed
+  - Proposes at least two improvement vectors to guide Task 3
 
-Use the Backtester to simulate PnL and draw performance metrics.
+**Deliverables (`/task_2_evaluation/`):**
+- `evaluation_report.ipynb` notebook:
+  - Shows backtester output and visual performance plots
+  - Includes a dedicated section for **qualitative and/or statistical analysis** of model reasoning
+  - Proposes concrete areas for improvement with supporting evidence
 
-Build an evaluation report that includes:
+---
 
-Win rate, Sharpe ratio, drawdown, and signal quality
+### ⚙️ Task 3: Experimentation & Optimization
 
-Qualitative and quantitative model reasoning analysis
+**Objective:**  
+Select two improvement directions based on Task 2 insights, implement them, and measure the impact.
 
-Identify promising improvement directions (e.g., prompt tuning, memory context, model grounding).
+**Examples:**
+- Better prompt design or template selection
+- Embedding-based memory or retrieval improvements
+- Confidence scoring and output filtering
+- Alternate LLM providers or fine-tuned models
+- Custom aggregation of structured + LLM outputs
 
-Deliverables (in /task_2_evaluation/):
+**Deliverables (`/task_3_experimentation/`):**
+- `experiments_and_results.ipynb` notebook:
+  - Documents your two improvements
+  - Runs comparative tests and analyzes the new performance
+  - Summarizes what improved, what didn’t, and why
 
-A Jupyter Notebook (evaluation_report.ipynb) that:
+---
 
-Runs the backtester
+## 📂 Submission Instructions
 
-Includes visualizations of performance (e.g., equity curve)
+Structure your GitHub repo as follows:
 
-Breaks down LLM-generated reasoning errors or hallucinations
-
-Proposes at least two improvement directions for Task 3
-
-📌 Task 3: Experimentation & Optimization
-Objective:
-Based on your findings from Task 2, implement two targeted improvements and measure their impact.
-
-Examples of valid improvements:
-
-Refined prompt engineering for better financial reasoning
-
-Retrieval-Augmented Generation using similar past cases
-
-Confidence scoring or hallucination filtering
-
-Using different LLMs or fine-tuned models
-
-Better input feature engineering
-
-Deliverables (in /task_3_experimentation/):
-
-A Jupyter Notebook (experiments_and_results.ipynb) showing:
-
-Your two chosen improvements
-
-Comparative performance metrics
-
-Commentary on what worked and what didn’t
-
-Final recommendations
-
-📦 Submission Instructions
-Submit a GitHub repository structured as follows:
-
-pgsql
-Copiar
-Editar
 repo/
 │
 ├── task_1_baseline/
-│   └── baseline_strategy.ipynb
+│ └── baseline_strategy.ipynb
 │
 ├── task_2_evaluation/
-│   └── evaluation_report.ipynb
+│ └── evaluation_report.ipynb
 │
 ├── task_3_experimentation/
-│   └── experiments_and_results.ipynb
+│ └── experiments_and_results.ipynb
 │
-└── README.md  ← Explain how to run your notebooks and dependencies
-Note: Use mock LLM outputs or OpenAI API calls as appropriate (mention cost constraints if applicable). You may simulate inference when needed for reproducibility.
+├── gold.csv ← Dataset file
+├── backtester.py ← Provided backtesting module
+└── README.md ← This file
 
-🧪 Evaluation Criteria
-Area	What We’re Looking For
-Code Quality	Modular, documented, reproducible code
-LLM System Design	Clear and creative use of LLMs and hybrid models
-Backtest Results	Evidence of reasonable strategy performance and generalization
-Evaluation Insight	Depth of insight into model decisions, hallucinations, and performance tradeoffs
-Experimentation Rigor	Logical follow-through on improvements, with thoughtful results interpretation
-Communication & Clarity	Clean, well-documented notebooks showing your reasoning and results
+yaml
+Copiar
+Editar
 
-🌟 Bonus Points
-Fine-tuning or retrieval pipelines using tools like LangGraph, LlamaIndex, or CrewAI
+---
 
-Use of vector databases, streaming retrieval, or context compression
+## 📈 Evaluation Criteria
 
-A lightweight dashboard (e.g., Streamlit or Gradio) to visualize model decisions
+| Area                              | What We’re Looking For                                                                 |
+|-----------------------------------|-----------------------------------------------------------------------------------------|
+| **Code Quality**                  | Modular, well-commented, reproducible notebooks                                        |
+| **LLM System Design**             | Effective use of LLMs (with or without hybrid elements) for market reasoning            |
+| **Backtest Performance**          | Reasonable returns and stability — no unrealistic overfitting                          |
+| **LLM Reasoning Evaluation**      | Insightful analysis of model decisions, with evidence-based improvement proposals      |
+| **Experimentation Rigor**         | Structured comparison of system improvements                                           |
+| **Communication & Clarity**      | Notebooks clearly explain rationale, logic, and results                                |
 
-Financial sentiment classifier training or scoring extension
+---
+
+## 🌟 Bonus Points
+
+- Integration with vector databases or retrieval frameworks (e.g. LangGraph, LlamaIndex, CrewAI)
+- Use of fine-tuned sentiment or market-focused models
+- Visual dashboards (e.g., Streamlit, Gradio) to inspect LLM decisions or model confidence
+- Added domain-specific knowledge graphs or context compression methods
+
+---
+
+Please document any external services used (e.g., OpenAI APIs) and note if you simulated outputs due to token limits or cost.
