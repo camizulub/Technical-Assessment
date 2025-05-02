@@ -112,7 +112,7 @@ repo/
 ├── gold.csv ← Dataset file
 ├── backtester.py ← Provided backtesting module
 └── README.md ← This file
----
+
 
 ## 📈 Evaluation Criteria
 
