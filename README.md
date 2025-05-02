@@ -4,7 +4,7 @@
 This technical assessment evaluates your ability to build an LLM-powered trading intelligence system using a real-world cryptocurrency dataset. You'll demonstrate expertise in implementing various components of an advanced LLM system for financial trading decision-making.
 
 ## Dataset Description
-The dataset (`gold-1.csv`) contains the following columns:
+The dataset (`gold.csv`) contains the following columns:
 - `datetime`: Timestamp of the trading data
 - `close`: Bitcoin closing price
 - `mvrv_btc_momentum`: Market Value to Realized Value momentum
