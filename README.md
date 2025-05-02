@@ -45,7 +45,7 @@ Build an LLM-powered system that outputs a continuous trading decision ∈ (-1, 
 
 **Requirements:**
 - Use LLMs to reason over sentiment and psychology fields.
-- Combine structured and unstructured data to enhance output quality (hybrid system encouraged).
+- Combine structured and unstructured data to enhance output quality (hybrid system encouraged). With price you can build multiple technical indicators for example.
 - Avoid look-ahead bias and overfitting — we will evaluate your system on a future data period.
 - Be creative: showcase your full skillset across LLMs, embeddings, retrieval, and hybrid ML techniques.
 
