@@ -29,29 +29,14 @@ Design and implement a Retrieval-Augmented Generation system that:
 - Implements a retrieval mechanism to find relevant historical parallels
 - Integrates retrieved context into the LLM's decision-making process
 
-### Task 2: LLM Trading Flow Design
-Develop a chain-of-thought reasoning workflow that:
-- Takes current market data as input
-- Analyzes sentiment and psychological factors
-- Retrieves similar historical patterns
-- Generates a structured trading recommendation with confidence score
-- Provides explicit reasoning for the decision
-
-### Task 3: Performance Evaluation
-Create a backtesting framework that:
-- Evaluates the LLM's trading decisions against historical data
-- Measures precision, recall, and F1-score of trading signals
-- Calculates ROI, Sharpe ratio, and drawdown metrics
-- Compares performance against baseline strategies
-
-### Task 4: Hallucination Reduction
+### Task 2: Hallucination Reduction
 Implement techniques to reduce hallucinations in the system by:
 - Creating a factual grounding mechanism using historical data
 - Implementing confidence scoring for predictions
 - Designing guardrails to prevent extreme predictions
 - Measuring and minimizing hallucination rates
 
-### Task 5: Experimentation & Optimization
+### Task 3: Experimentation & Optimization
 Design an experimentation framework that:
 - Tests different prompt structures
 - Evaluates various RAG retrieval mechanisms
@@ -73,7 +58,4 @@ Design an experimentation framework that:
 - Thoroughness of experimentation and optimization
 
 ## Bonus Points
-- Implementation of agentic structure for autonomous trading decisions
-- Integration with real-time market data sources
 - Fine-tuning of a specialized model for financial sentiment analysis
-- Creative approaches to extract insights from social media signals
