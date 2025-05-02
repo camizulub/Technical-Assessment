@@ -98,21 +98,22 @@ Select two improvement directions based on Task 2 insights, implement them, and 
 
 Structure your GitHub repo as follows:
 
+```
 repo/
 │
 ├── task_1_baseline/
-│ └── baseline_strategy.ipynb
+│   └── baseline_strategy.ipynb
 │
 ├── task_2_evaluation/
-│ └── evaluation_report.ipynb
+│   └── evaluation_report.ipynb
 │
 ├── task_3_experimentation/
-│ └── experiments_and_results.ipynb
+│   └── experiments_and_results.ipynb
 │
-├── gold.csv ← Dataset file
-├── backtester.py ← Provided backtesting module
-└── README.md ← This file
-
+├── gold.csv           # Dataset file
+├── backtester.py      # Provided backtesting module
+└── README.md          #
+```
 
 ## 📈 Evaluation Criteria
 
