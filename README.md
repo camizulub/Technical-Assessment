@@ -112,11 +112,6 @@ repo/
 ├── gold.csv ← Dataset file
 ├── backtester.py ← Provided backtesting module
 └── README.md ← This file
-
-yaml
-Copiar
-Editar
-
 ---
 
 ## 📈 Evaluation Criteria
@@ -134,8 +129,9 @@ Editar
 
 ## 🌟 Bonus Points
 
-- Integration with vector databases or retrieval frameworks (e.g. LangGraph, LlamaIndex, CrewAI)
+- Integration with vector databases or multiple retrieval frameworks (e.g. LangGraph, LlamaIndex, CrewAI)
 - Use of fine-tuned sentiment or market-focused models
+- Show as many llm gen ai tools and frameworks
 - Visual dashboards (e.g., Streamlit, Gradio) to inspect LLM decisions or model confidence
 - Added domain-specific knowledge graphs or context compression methods
 
