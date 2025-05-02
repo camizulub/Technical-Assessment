@@ -36,7 +36,7 @@ The dataset `gold.csv` includes both structured market data and unstructured sen
 ### 🧩 Task 1: Baseline Trading System
 
 **Objective:**  
-Build an LLM-powered system that outputs a continuous trading decision ∈ (-1, 1) for each row in the dataset.
+Build an LLM-powered system that outputs a continuous trading decision ∈ (-1, 1) for each row in the dataset. Your system should apply some kind of RAG. Be creative, rags can be used in many ways not only for documents.
 #### Signal Interpretation
 
 - **1 (Buy/Long)**: When a buy signal is generated, you take a long position. You'll profit if the price increases after your entry.
